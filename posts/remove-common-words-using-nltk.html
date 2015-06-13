@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>remove common words using nltk | Ourren</title>
+  <meta name="description" content="Thoughts, research and life." />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+  <meta name="generator" content="Ourren">
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+</head>
+
+
+	<body class="home-template">
+	  <header class="site-head">
+    <div class="vertical">
+        <div class="site-head-content inner">
+            <h1 class="blog-title"><a href="/">Ourren</a></h1>
+            <h2 class="blog-description">Thoughts, research and life.</h2>
+        </div>
+    </div>
+</header>
+	  
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2015-01-15T23:42:18.000Z" itemprop="datePublished">
+          Jan 15 2015
+      </time>
+    
+    
+    | 
+    <a href='//tags/nltk/'>nltk</a>,
+    
+    <a href='//tags/code/'>code</a>
+    
+    
+</span>
+    <h1 class="post-title">remove common words using nltk</h1>
+    <section class="post-content">
+      <p>The current topic is that: I want to remove the common words from my sample data. But I have searched from the Internet, it did not have similar post. So I want to share some tips about this topic. Since I’m doing some research with NLP, and <a href="http://www.nltk.org/" target="_blank" rel="external">nltk</a> is the best package with english.<br><a id="more"></a></p>
+<h4 id="common_words">common words</h4>
+<p>the first question is how to define the common words? Maybe we can think in two ways: the first is the most often used words on the Internet, dictionary, or books; the second is the most high frequency words in the sample data. Actually it is all depend on your situation.</p>
+<h4 id="stopwords">stopwords</h4>
+<p>the nltk have a corpus called <a href="http://www.nltk.org/book/ch02.html" target="_blank" rel="external">stopwords</a>, it means: </p>
+<blockquote>
+<p>There is also a corpus of stopwords, that is, high-frequency words like the, to and also that we sometimes want to filter out of a document before further processing. Stopwords usually have little lexical content, and their presence in a text fails to distinguish it from other texts.</p>
+</blockquote>
+<p>how to get the common words list, it’s very simple, just as below:</p>
+<pre><code><span class="keyword">from</span> nltk.corpus <span class="keyword">import</span> stopwords    
+english_stopwords = stopwords.words(<span class="string">'english'</span>)
+<span class="keyword">print</span> len(english_stopwords)
+</code></pre><p>but the length of stopwords is very small, only (127 words).</p>
+<h4 id="high_frequency_in_sample">high frequency in sample</h4>
+<p>if the above methods could not solve the problem in our research, we need to create our own often words. Here is my current method:</p>
+<ol>
+<li>convert the sample data to word list;</li>
+<li>calculate the frequency of the word list;</li>
+<li>get the top frequency of the list, this is the common words.</li>
+</ol>
+<p>the python code is below:</p>
+<pre><code><span class="keyword">import</span> nltk
+<span class="function"><span class="keyword">def</span> <span class="title">convertlist</span><span class="params">(filename)</span>:</span>
+    list_out = list()
+    fhandle = open(filename)
+    <span class="keyword">for</span> line <span class="keyword">in</span> fhandle.readlines():
+        line = line.replace(<span class="string">"\n"</span>, <span class="string">""</span>).strip()
+        line = line.lower()
+        <span class="keyword">try</span>:
+            texts_tokenized = word_tokenize(line)
+            <span class="keyword">for</span> words <span class="keyword">in</span> texts_tokenized:
+                english_punctuations = [<span class="string">','</span>, <span class="string">'.'</span>, <span class="string">':'</span>, <span class="string">';'</span>, <span class="string">'?'</span>, <span class="string">'('</span>, <span class="string">')'</span>, <span class="string">'['</span>, <span class="string">']'</span>, <span class="string">'&amp;'</span>, <span class="string">'!'</span>, <span class="string">'*'</span>, <span class="string">'@'</span>, <span class="string">'#'</span>, <span class="string">'$'</span>, <span class="string">'%'</span>]
+                <span class="keyword">if</span> <span class="keyword">not</span> words <span class="keyword">in</span> english_punctuations:
+                    list_out.append(words)
+        <span class="keyword">except</span>:
+            <span class="keyword">continue</span>
+    <span class="keyword">return</span> list_out
+
+<span class="function"><span class="keyword">def</span> <span class="title">get_common_words</span><span class="params">()</span>:</span>
+    ret_list = []
+    out_path = <span class="string">"./sample_data"</span>
+    content = convertlist(out_path)
+    fdist2 = nltk.FreqDist(content)
+    most_list = fdist2.most_common(<span class="number">400</span>)
+    <span class="keyword">for</span> x, value <span class="keyword">in</span> most_list:
+        ret_list.append(x)
+    <span class="keyword">return</span> ret_list
+
+<span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span>
+    common_list = get_common_words()
+    <span class="keyword">print</span> common_list[<span class="number">0</span>:<span class="number">100</span>]
+
+<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
+       main()
+</code></pre>
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>ourren</h4>
+    <p>a security researcher, interests including but not limit: Web security, social privacy, NLP, wireless and binary security.</p>
+</section>
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/posts/solve-the-install-error-with-scapy-on-Mac.html">
+        ← solve the install error with scapy on Mac
+    </a>
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="/posts/install-Latex-with-Sublime-and-Skim-on-Mac-OS-X.html">
+        install Latex with Sublime and Skim on Mac OS X →
+    </a>
+    
+</nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
+
+    
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+    
+</div>
+</main>
+
+
+	  
+<footer class="site-footer">
+  
+  <a class="subscribe icon-feed" href="atom.xml"><span class="tooltip">Subscribe!</span></a>
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">Ourren</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+	  <script src="/js/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'ourren';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+	 </body> 
+	  
+
+</html>

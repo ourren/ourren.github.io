@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>install Latex with Sublime and Skim on Mac OS X | Ourren</title>
+  <meta name="description" content="Thoughts, research and life." />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+  <meta name="generator" content="Ourren">
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+</head>
+
+
+	<body class="home-template">
+	  <header class="site-head">
+    <div class="vertical">
+        <div class="site-head-content inner">
+            <h1 class="blog-title"><a href="/">Ourren</a></h1>
+            <h2 class="blog-description">Thoughts, research and life.</h2>
+        </div>
+    </div>
+</header>
+	  
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2014-12-25T21:51:05.000Z" itemprop="datePublished">
+          Dec 25 2014
+      </time>
+    
+    
+    | 
+    <a href='//tags/latex/'>latex</a>
+    
+    
+</span>
+    <h1 class="post-title">install Latex with Sublime and Skim on Mac OS X</h1>
+    <section class="post-content">
+      <p>Latex is new format typesetting for researchers, especially for writing paper and books. You can use its grammer and tools to export perfect documents. Today we want to deploy the Latex enviroment for Mac. As all we know, Sublime Text is a good editor tool for Promgramer and Web developer, not just only because it has a beatiful theme but also has many plugins. Latextools is another Latex tool for Sublime Text. In order to finish this, we need to install the following programs step by step.<br><a id="more"></a></p>
+<h5 id="Step1:_install_Mactex">Step1: install Mactex</h5>
+<p><a href="http://www.tug.org/mactex/" target="_blank" rel="external">Mactex</a> is the base latex enviroment for Mac. You can download the latest MacTex.pkg and install as usual.</p>
+<h5 id="Step2:_install_Sublime_Text">Step2: install Sublime Text</h5>
+<p><a href="http://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text</a> is a commerce software but could use for free. It will be our text editor for Latex. </p>
+<p>After you have installed the sublime text, you also need to install some packages:</p>
+<ol>
+<li>Need to install <a href="https://sublime.wbond.net/installation" target="_blank" rel="external">Sublime package control</a>;</li>
+<li>Install Latextools. Open sublime and press “Command+Shift+P” to open the command pallet. Alternatively you can find it in the Tools menu. Start typing “Install Package” and you’ll find it auto-completes if for you. Select and hit “Enter”.</li>
+</ol>
+<h5 id="Step3:_install_Skim">Step3: install Skim</h5>
+<p><a href="http://skim-app.sourceforge.net/" target="_blank" rel="external">Skim</a> is free pdf reader for Mac.</p>
+<ol>
+<li>Download and install SKIM PDF viewer.</li>
+<li>Open Skim, go to Preferences &gt; Sync.</li>
+<li>Uncheck “Check for file changes” option.</li>
+<li>Under Preset type “Custom”.</li>
+<li><p>Set the Command to:</p>
+<p> /Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl</p>
+<p> Finally set Arguments to:</p>
+<p> “%file”:%line</p>
+</li>
+</ol>
+<h5 id="Step4:_configure">Step4: configure</h5>
+<ol>
+<li>If you could see the live preview with your documents, just say you want to see two windows(sublime and skim) on the Mac screen, you need to install <a href="http://manytricks.com/moom/" target="_blank" rel="external">Moom</a> software.</li>
+<li>If you want to write some Chinese paper with latex, you also need to solve the font problems, you can see it from here,<a href="http://www.readern.com/sublime-text-latex-chinese-under-mac.html" target="_blank" rel="external">solve the Chinese problem with Latex</a>.</li>
+</ol>
+<h5 id="Materials_about_Latex">Materials about Latex</h5>
+<p>If you are a newbie for Latex, you need some usefull links, here is my current learn list.</p>
+<ol>
+<li><a href="http://pan.baidu.com/s/1dDzocwT" target="_blank" rel="external">Latex video by ChinaTex</a></li>
+<li><a href="http://www.ctex.org/OnlineDocuments" target="_blank" rel="external">CTEX : OnlineDocuments</a></li>
+<li><a href="http://ctan.mirror.rafal.ca/info/lshort/english/lshort.pdf" target="_blank" rel="external">The Not So Short Introduction to LATEX 2ε</a></li>
+<li><a href="https://www.sharelatex.com/templates" target="_blank" rel="external">Latex Template Download</a></li>
+</ol>
+<p><img src="/upload/sublimelatex.png" alt="Sublime Latex"></p>
+<h5 id="Reference">Reference</h5>
+<ol>
+<li><a href="http://economistry.com/2013/01/installing-and-using-latex-for-mac/" target="_blank" rel="external">Making your first PDF with LaTeX and Sublime Text 2 for Mac</a></li>
+<li><a href="http://www.readern.com/sublime-text-latex-chinese-under-mac.html" target="_blank" rel="external">deploy Latex on Mac</a>. </li>
+</ol>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>ourren</h4>
+    <p>a security researcher, interests including but not limit: Web security, social privacy, NLP, wireless and binary security.</p>
+</section>
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/posts/remove-common-words-using-nltk.html">
+        ← remove common words using nltk
+    </a>
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="/posts/projects.html">
+        projects →
+    </a>
+    
+</nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
+
+    
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+    
+</div>
+</main>
+
+
+	  
+<footer class="site-footer">
+  
+  <a class="subscribe icon-feed" href="atom.xml"><span class="tooltip">Subscribe!</span></a>
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">Ourren</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+	  <script src="/js/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'ourren';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+	 </body> 
+	  
+
+</html>
