@@ -2,9 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[Ourren]]></title>
   <subtitle><![CDATA[Thoughts, research and life.]]></subtitle>
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   <link href="http://www.ourren.com/"/>
-  <updated>2015-06-26T18:22:54.291Z</updated>
+  <updated>2015-06-26T18:24:10.337Z</updated>
   <id>http://www.ourren.com/</id>
   
   <author>
