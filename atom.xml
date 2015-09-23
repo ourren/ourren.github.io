@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Thoughts, research and life.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.ourren.com/"/>
-  <updated>2015-06-26T18:24:10.337Z</updated>
+  <updated>2015-09-23T05:08:34.712Z</updated>
   <id>http://www.ourren.com/</id>
   
   <author>
@@ -571,14 +571,14 @@ english_stopwords = stopwords.words(<span class="string">'english'</span>)
     <link href="http://www.ourren.com/posts/about.html"/>
     <id>http://www.ourren.com/posts/about.html</id>
     <published>2014-10-30T18:05:51.000Z</published>
-    <updated>2015-03-06T04:24:27.000Z</updated>
+    <updated>2015-09-23T05:06:33.000Z</updated>
     <content type="html"><![CDATA[<p>I’m a computer science researcher and do some really cool things with passionate guys. </p>
 <ol>
 <li><p>My current interests including but not limit: Web security, social privacy, NLP, wireless and binary security.</p>
 </li>
 <li><p>I am the founder of the <a href="http://www.sec-wiki.com" target="_blank" rel="external">SecWiki</a> which focus on the latest security news and tecnology, also help the newbie to learn security skills quickly;</p>
 </li>
-<li><p>I am the leader of the <a href="http://srg.gitcafe.io" target="_blank" rel="external">SRG</a> which is a security research group. It help people communicate with other security students and scholars.</p>
+<li><p>I am the leader of the <a href="http://secdr.github.io/" target="_blank" rel="external">SecDr</a> which is a security research group. It help people communicate with other security students and scholars.</p>
 </li>
 <li><p>I am also the member of <a href="http://insight-labs.org" target="_blank" rel="external">Insight-labs</a>. Insight Labs is a group of security organizations from around the world cutting-edge information security experts in security research group.</p>
 </li>
